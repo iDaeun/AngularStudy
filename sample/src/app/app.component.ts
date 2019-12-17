@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'sample';
+
+  // 두 개 다른 변수 정의
+  appTitle1 = 'appTitle1';
+  appTitle2 = 'appTitle2';
 }
