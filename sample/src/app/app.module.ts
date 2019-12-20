@@ -1,20 +1,29 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
-import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import { NoteBookComponent } from './note-book/note-book.component';
+import {BookComponent} from './book/book.component';
+import {RouterModule} from '@angular/router';
 import { PenComponent } from './pen/pen.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NoteBookComponent,
-    PenComponent,
+    BookComponent,
+    PenComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    RouterModule.forRoot([
+      {
+        path: 'book',
+        component: BookComponent
+      },
+      {
+       path: 'pen',
+       component: PenComponent
+      }
+    ])
   ],
   bootstrap: [AppComponent]
 })
