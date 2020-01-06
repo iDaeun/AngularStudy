@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,12 @@ export class CartService {
     return this.items;
   }
 
-  constructor() { }
+  // 배송 비용 안내
+  getShippingPrices(){
+    return this.http.get('assets/shipping.json');
+  }
+
+  constructor(
+    private http: HttpClient
+  ) { }
 }
