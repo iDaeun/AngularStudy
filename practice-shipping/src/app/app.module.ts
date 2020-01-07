@@ -13,6 +13,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { ShippingComponent } from './shipping/shipping.component';
 import {ReactiveFormsModule} from '@angular/forms';
 
+// NgModule = 비슷한 기능을 하나로 묶어서 관리하기 위한 모듈
 @NgModule({
   declarations: [
     AppComponent,
