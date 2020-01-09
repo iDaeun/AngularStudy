@@ -28,3 +28,22 @@ NgModule 메타데이터
 - imports : 다른 모듈에서 공개한 클래스를 현재의 NgModule에 가져옴
 - providers : NgModiule컨텍스트 안에서 사용하는 서비스 프로바이더를 지정
 - bootstrap : 어플리케이션 최상위 뷰로 표시될 최상위 컴포넌트 지정, 이는 최상위 NgModule에서만 지정할 수 있음
+
+최상위 NgModule 예시 : 
+<pre><code>import { NgModule }      from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+@NgModule({
+  imports:      [ BrowserModule ],
+  providers:    [ Logger ],
+  declarations: [ AppComponent ],
+  exports:      [ AppComponent ],
+  bootstrap:    [ AppComponent ]
+})
+export class AppModule { } </code></pre>
+
+--> 최상위 모듈은 다른 NgModule에서 참조할 일이 없기 때문에 exports로 지정할 필요 없음
+
+CommonModule를 import안해도 NgIf, NgFor사용 가능한 이유?
+
+AppModule안을 보면 BrowserModule를 기본적으로 import하고 있음, 이 모듈이 CommonModule를 import하고 있기 때문
+기능 모듈은 브라우저에서 어플리케이션을 구동시키는 데 필요한 기능이 필요 없으므로 BrowserModule를 import하지 않아도 됨, 대신 지시자와 파이프를 사용하기 위해서 CommonModule를 import해야함
