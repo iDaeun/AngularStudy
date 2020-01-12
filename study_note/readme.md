@@ -78,3 +78,28 @@ import { AppComponent } from './app.component';
 })
 export class AppModule { } </code></pre>
 
+다른 점 :
+- NgModule범위 -> 구성요소로 선언한 클래스(declarable classes)들로 제한됨 ☜ Angular 컴파일러와 관계 있음
+- @NgModule.declarations 배열을 사용해서 여러 파일로 나눌 수 있음
+- @NgModule.declarations에 선언한 클래스만 모듈 외부로 공개 가능, export키워드로 지정했다고 모듈에서 참조할 수 있는 것이 아님
+- @NgModule.providers배열에서 지정하는 서비스&서비스 프로바이더 사용 -> 어플리케이션 전체를 확장할 수 있음
+
+Angular 컴파일러
+= 어플리케이션 코드를 JavaScript 코드로 변환하는 툴
+1) 네이티브HTML에 없는 문법이 많은 TypeScript으로 작성된 앵귤러 코드는 그 자체로 실행될 수 없음
+2) 앵귤러 컴파일러는 이 템플릿을 읽고 컴포넌트를 연결 (컴포넌트 팩토리 생성)
+3) 컴포넌트 팩토리 -> 컴포넌트를 표현하는 100% JavaScript코드를 생성함
+4) 3번이 실행될 때 컴포넌트의 @Component에 지정한 내용으로 HTML템플릿과 연결함
+5) 컴포넌트에 사용된 디렉티브 & 파이프도 컴포넌트 코드에 연결함
+** 컴파일러가 컴파일할 컴포넌트 지정하는 것 & 모듈끼리 어떻게 연결되는지 설정하는 것 == @NgModule 설정에 따름
+
+@NgModule.declarations 
+- 모듈에 포함되는 컴포넌트, 디렉티브, 파이프를 배열로 등록할 수 있음 = 'declarable'을 등록함 (대상 클래스는 1개 모듈에만 등록해야함)
+- declarable = Angular구성요소이면서 JavaScript클래스임
+- declarations배열에 추가하지 말아야 할 클래스 :
+   * 다른 모듈에 이미 추가된 클래스
+   * 다른 모듈에서 가져온 디렉티브
+   * 모듈 클래스
+   * 서비스 클래스
+   * Angular구성요소가 아닌 클래스나 객체 (ex.문자열, 숫자, 함수 ..)
+
