@@ -1,3 +1,12 @@
 <h2>{{hero.name | uppercase}} Details</h2>
 <div><span>id : {{hero.id}}</span></div>
 <div><span>name : {{hero.name}}</span></div>
+<hr>
+<!-- 히어로의 name 프로퍼티 : 화면에 표시 & 유저가 입력한 값으로 프로퍼티 업데이트 (데이터 연결 : 화면 & 클래스) -->
+<h3>양방향 바인딩</h3>
+<div>
+  <label>
+  <!--  input 엘리먼트 & hero.name 프로퍼티 양방향 바인딩  -->
+    name: <input [(ngModel)]="hero.name" placeholder="name"/>
+  </label>
+</div>
