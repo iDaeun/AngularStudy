@@ -1,22 +1,3 @@
-<div *ngIf="selectedHero">
-
-  <h2>{{selectedHero.name | uppercase}} Details</h2>
-  <div><span>id : </span>{{selectedHero.id}}</div>
-  <div><span>name : {{hero.name}}</span></div>
-  <hr>
-
-  <!-- 히어로의 name 프로퍼티 : 화면에 표시 & 유저가 입력한 값으로 프로퍼티 업데이트 (데이터 연결 : 화면 & 클래스) -->
-  <h3>양방향 바인딩</h3>
-  <div>
-    <label>
-    <!--  input 엘리먼트 & hero.name 프로퍼티 양방향 바인딩  -->
-      name: <input [(ngModel)]="selectedHero.name" placeholder="name"/>
-    </label>
-  </div>
-
-</div>
-
-<hr>
 <h3>Heroes 배열 (ngFor)</h3>
 <ul class="heroes">
 <!-- 클래스 바인딩 -> 해당 컴포넌트의 css파일에 정의되어 있는 CSS클래스 추가 및 제거 : selectedHero가 hero와 같을때 selected CSS 클래스 추가됨 -->
@@ -26,3 +7,6 @@
     <span class="badge">{{hero.id}}</span> {{hero.name}}
   </li>
 </ul>
+<hr>
+<!-- selectedHero프로퍼티가 hero프로퍼티로 단방향 데이터 바인딩 -->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
