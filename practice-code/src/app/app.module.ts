@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ConstComponent } from './const/const.component';
+import { SpreadComponent } from './spread/spread.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConstComponent
+    ConstComponent,
+    SpreadComponent
   ],
   imports: [
     BrowserModule,
