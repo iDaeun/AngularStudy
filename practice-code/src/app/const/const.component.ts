@@ -36,10 +36,12 @@ export class ConstComponent implements OnInit {
     const{firstMessage, secondMessage} = setType2;
     console.log(firstMessage);
     console.log(secondMessage);
-    // const arr = [1, 2, 3, 4];
-    // const { arr1 } = this;
-    // const len = arr1.length;
-    // console.log(len);
+    const arr = [0, 1, 2, 3, 4];
+    const [ arr1 ] = arr;
+    console.log(arr1);
+    // const arr2 = {a: 1, b: 2};
+    // const {arr3} = arr2;
+    // console.log(arr3);
   }
   constructor() { }
 
