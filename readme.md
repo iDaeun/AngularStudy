@@ -111,3 +111,22 @@ Angular Framework = 라이브러리 모듈의 묶음 (JavaScript 모듈 형태�
 객체에 접근 (@NgModule 메타데이터)
 <pre><code>imports:[ BrowserModule ],</code></pre>
 * Angular모듈체계 & JavaScript모듈체계 -> 함께 사용됨
+
+## 3. 컴포넌트
+뷰라는 화면의 일부를 조작하는 역할, 뷰에서 사용할 로직을 컴포넌트에 정의함
+<pre><code>export class HeroListComponent implements OnInit {
+  heroes: Hero[];
+  selectedHero: Hero;
+
+  constructor(private service: HeroService) { }
+
+  ngOnInit() {
+    this.heroes = this.service.getHeroes();
+  }
+
+  selectHero(hero: Hero) { this.selectedHero = hero; }
+}</code></pre>
+- heroes 프로퍼티 선언 : Hero목록을 받아서 저장
+- selectHero() : selectedhero프로퍼티 갱신
+- 생성자에 TypeScript의 인자 프로퍼티(parameter property) 지정 -> 서비스를 의존성으로 주입받음
+
