@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {isArrayLike} from 'rxjs/internal-compatibility';
 @Component({
   selector: 'app-const',
   templateUrl: './const.component.html',
@@ -36,9 +37,27 @@ export class ConstComponent implements OnInit {
     const{firstMessage, secondMessage} = setType2;
     console.log(firstMessage);
     console.log(secondMessage);
+
+    // Destructuring Array
     const arr = [0, 1, 2, 3, 4];
     const [ arr1 ] = arr;
-    console.log(arr1);
+    console.log(arr1); // 첫번째 인자 0
+    const [arr2, arr3, arr4] = arr;
+    console.log(arr3); // 두번째 인자 1
+    const [arr5, , arr6] = arr;
+    console.log(arr6); // 세번째 인자 2
+    const [arr7, ...rest] = arr;
+    console.log(rest); // [1, 2, 3, 4]
+    const name = 'hi there';
+    const [arr8, arr9] = name.split(' ');
+    console.log(arr8); // array from a function : hi
+    const [arr10 = 'arr10', arr11] = arr;
+    console.log(arr10); // 만약 인자가 없었으면 arr10으로 출력됨
+    let test1 = 'test1';
+    let test2 = 'test2';
+    const testarr = [test1, test2] = [test2, test1];
+    console.log(testarr); // swap varibles ["test2", "test1"]
+
     // const arr2 = {a: 1, b: 2};
     // const {arr3} = arr2;
     // console.log(arr3);
