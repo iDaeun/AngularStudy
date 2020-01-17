@@ -102,4 +102,12 @@ Angular 컴파일러
    * 모듈 클래스
    * 서비스 클래스
    * Angular구성요소가 아닌 클래스나 객체 (ex.문자열, 숫자, 함수 ..)
+   
+Angular 라이브러리
 
+Angular Framework = 라이브러리 모듈의 묶음 (JavaScript 모듈 형태로 제공됨)
+- 각각 Angular 라이브러리는 @angular접두사로 시작, npm으로 설치, JavaScript import구문으로 불러옴
+<pre><code>import { BrowserModule } from '@angular/platform-browser';</code></pre>
+객체에 접근 (@NgModule 메타데이터)
+<pre><code>imports:[ BrowserModule ],</code></pre>
+* Angular모듈체계 & JavaScript모듈체계 -> 함께 사용됨
