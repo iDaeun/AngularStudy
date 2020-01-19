@@ -130,3 +130,27 @@ Angular Framework = 라이브러리 모듈의 묶음 (JavaScript 모듈 형태�
 - selectHero() : selectedhero프로퍼티 갱신
 - 생성자에 TypeScript의 인자 프로퍼티(parameter property) 지정 -> 서비스를 의존성으로 주입받음
 
+인자 프로퍼티
+: 변수를 한번에 생성하고 초기화할 수 있다
+<pre><code>class Person{
+    private _name: string;
+    private _age: number;
+    constructor(name: string, age: number) {
+        this._name = name;
+        this._age = age;
+    }
+ ...
+}</code></pre>
+
+name과 age를 인자프로퍼티로 간략하게 선언함 ↓
+<pre><code>class Person {
+    constructor(private _name: String, private _age: number) {
+    }
+...
+}</code></pre>
+
+컴포넌트는 Angular의 라이프사이클을 따라 생성, 렌더링됨 -> 라이프사이클 후킹 함수로 동작으로 조정할 수 있음
+- 디렉티브와 컴포넌트는 같은 라이프사이클을 갖음
+- (1) 생성자가 제일 먼저 실행됨
+- (2) 그 다음 순서에 따라 라이프사이클 후킹함수가 실행됨 (ng접두사 형태의 메소드)
+- 각 후킹 함수에 대한 설명
