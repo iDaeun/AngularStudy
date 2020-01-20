@@ -153,4 +153,22 @@ name과 age를 인자프로퍼티로 간략하게 선언함 ↓
 - 디렉티브와 컴포넌트는 같은 라이프사이클을 갖음
 - (1) 생성자가 제일 먼저 실행됨
 - (2) 그 다음 순서에 따라 라이프사이클 후킹함수가 실행됨 (ng접두사 형태의 메소드)
-- 각 후킹 함수에 대한 설명
+- 각 후킹 함수에 대한 설명 (https://angular.kr/guide/lifecycle-hooks#%EB%9D%BC%EC%9D%B4%ED%94%84%EC%8B%B8%EC%9D%B4%ED%81%B4-%ED%95%A8%EC%88%98-%EC%8B%A4%ED%96%89-%EC%88%9C%EC%84%9C)
+
+컴포넌트 메타데이터
+
+컴포넌트가 Angular의 구성요소로써 어떻게 생성되고 어떤 뷰를 정의하며 동작할지 정의함
+뷰 -- 컴포넌트 메타데이터 -- 외부 템플릿 파일 / 인라인 템플릿 (연결)
+<pre><code>@Component({
+  selector:    'app-hero-list',
+  templateUrl: './hero-list.component.html',
+  providers:  [ HeroService ]
+})
+export class HeroListComponent implements OnInit {
+/* . . . */
+}</code></pre>
+
+- selector : 컴포넌트 인스턴스가 DOM트리의 어떤 자리에 위치할지 CSS셀렉터로 지정
+여기서는 <app-hero-list></app-hero-list>로 작성한 위치에 인스턴스 생성되고 HeroListComponent의 뷰로 대체됨
+- templateUrl : 컴포넌트의 HTML템플릿을 외부파일에 정의할 때 위치를 지정함
+- providers : 컴포넌트가 생성될 때 의존성으로 주입되는 서비스의 프로바이더 지정
