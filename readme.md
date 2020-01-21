@@ -172,3 +172,36 @@ export class HeroListComponent implements OnInit {
 여기서는 <app-hero-list></app-hero-list>로 작성한 위치에 인스턴스 생성되고 HeroListComponent의 뷰로 대체됨
 - templateUrl : 컴포넌트의 HTML템플릿을 외부파일에 정의할 때 위치를 지정함
 - providers : 컴포넌트가 생성될 때 의존성으로 주입되는 서비스의 프로바이더 지정
+
+템플릿 & 뷰
+
+컴포넌트의 뷰 = 템플릿으로 정의, 화면에 HTML형식으로 정의됨
+- 계측적인 구성
+- 일부영역을 개발자가 조작할 수 있음
+- 보통 같은 NgModule에 있는 컴포넌트를 활용해서 뷰 계층으로 구성됨
+
+템플릿 문법
+<code><pre>// 문자열 바인딩
+<li>{{hero.name}}</li>
+
+// 프로퍼티 바인딩
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+
+// 이벤트 바인딩
+<li (click)="selectHero(hero)"></li></code></pre>
+
+1) 문자열 바인딩 : 해당 component안에 있는 프로퍼티 값을 <li>엘리먼트 안에 표시함
+
+2) 프로퍼티 바인딩 : 
+[src/app/hero-list.component.html] -- @Input
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+(부모) HeroListComponent에 있는 selectedHero값 --> (자식) HeroDetailComponent의 hero프로퍼티로 전달
+
+3) 이벤트 바인딩 :
+[src/app/hero-list.component.html]
+<li (click)="selectHero(hero)"></li>
+해당<li>을 클릭 하면 --> HeroListComponent에 있는 selectHero(hero)메소드 실행
+[src/app/test.component.html] -- @Output
+<app-select-box-date-picker
+(selectedDateChanged)="onChangeSelectedDate($event)"></app-select-box-date-picker>
+(자식) SelectBoxDatePicker에서 정의한 selecteDateChanged메소드 --> (부모) TestComponent의 onChangeSelectedDate($event)로 전달
