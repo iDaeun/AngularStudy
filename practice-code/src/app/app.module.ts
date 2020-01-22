@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ConstComponent } from './const/const.component';
 import { SpreadComponent } from './spread/spread.component';
+import { FilterAndMapComponent } from './filter-and-map/filter-and-map.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConstComponent,
-    SpreadComponent
+    SpreadComponent,
+    FilterAndMapComponent
   ],
   imports: [
     BrowserModule,
