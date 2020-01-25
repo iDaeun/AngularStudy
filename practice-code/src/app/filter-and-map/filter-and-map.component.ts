@@ -29,4 +29,10 @@ export class FilterAndMapComponent implements OnInit {
     // map -> 부모 스코프 영역을 건드리지 않고 콜백 함수로만으로 목적을 달성함
     // ** 함수형 프로그래밍 패러다임 = '순수 함수'의 연결로부터 도메인을 해결함 : Input, Output이 중요, 다른 영역 간섭 안함 (쉽고 간결한 구조 형성)
   }
+
+  filterAndMap() {
+    const arr4 = [2, 15, 17, 20, 400];
+    const arr5 = arr4.filter( element => element % 5 === 0).map( element => element * 2 ); // 5배수를 찾아내어 *2를 해서 리턴
+    console.log(arr5); // [30, 40, 800], 만약 5의 배수가 없으면 빈 배열이 반환됨 (에러 안남)
+  }
 }
