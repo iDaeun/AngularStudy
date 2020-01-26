@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Hero} from '../hero';
 // import {HEROES} from '../mock-heroes';
 import { HeroService } from '../hero.service';
+import {HEROES} from '../mock-heroes';
 
 @Component({
   selector: 'app-heroes',
@@ -31,8 +32,11 @@ export class HeroesComponent implements OnInit {
   onSelect(hero: Hero) {
     this.selectedHero = hero;
   }
+
+  // Observable타입 반환 -> 응답을 콜백함수로 전달 -> 히어로 데이터를 heroes 프로퍼티에 할당함 (비동기 방식)
   getHeroes(): void {
-    this.heroes = this.heroService.getHeroes(); // 동기 방식으로 동작함
+    this.heroService.getHeroes()
+      .subscribe( heroes => this.heroes = heroes );
   }
 
   // 라이프싸이클 후킹 함수, 컴포넌트 생성한 직후에 ngOnInit호출함
