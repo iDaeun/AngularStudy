@@ -205,3 +205,20 @@ export class HeroListComponent implements OnInit {
 <app-select-box-date-picker
 (selectedDateChanged)="onChangeSelectedDate($event)"></app-select-box-date-picker>
 (자식) SelectBoxDatePicker에서 정의한 selecteDateChanged메소드 --> (부모) TestComponent의 onChangeSelectedDate($event)로 전달
+
+파이프
+
+데이터가 템플릿 HTML에 표시될 때 원하는 형식으로 지정할 수 있음
+- {{ 변환되는 값 | 파이프 이름 }}
+- 날짜 파이프, 통화 파이프 자주 사용
+
+<code><pre> 
+<!-- 기본 형식: 'Jun 15, 2015'-->
+ <p>Today is {{today | date}}</p>
+
+<!-- fullDate 형식: 'Monday, June 15, 2015'-->
+<p>The date is {{today | date:'fullDate'}}</p>
+
+ <!-- shortTime 형식: '9:43 AM'-->
+ <p>The time is {{today | date:'shortTime'}}</p> 
+</code></pre>
