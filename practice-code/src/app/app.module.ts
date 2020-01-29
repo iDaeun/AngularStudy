@@ -6,7 +6,9 @@ import { AppComponent } from './app.component';
 import { ConstComponent } from './const/const.component';
 import { SpreadComponent } from './spread/spread.component';
 import { FilterAndMapComponent } from './filter-and-map/filter-and-map.component';
-import { DetectTestComponent } from './detect-test/detect-test.component';
+import { ChildComponent } from './child/child.component';
+import { ChildofchildComponent } from './childofchild/childofchild.component';
+import { ParentComponent } from './parent/parent.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { DetectTestComponent } from './detect-test/detect-test.component';
     ConstComponent,
     SpreadComponent,
     FilterAndMapComponent,
-    DetectTestComponent
+    ChildComponent,
+    ChildofchildComponent,
+    ParentComponent
   ],
   imports: [
     BrowserModule,

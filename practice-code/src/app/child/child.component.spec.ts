@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DetectTestComponent } from './detect-test.component';
+import { DetectTestComponent } from './child.component';
 
 describe('DetectTestComponent', () => {
   let component: DetectTestComponent;
