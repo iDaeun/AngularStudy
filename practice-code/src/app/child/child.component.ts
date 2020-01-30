@@ -6,7 +6,7 @@ import {ChangeDetectorRef, Component, DoCheck, Input} from '@angular/core';
 @Component({
   selector: 'app-child',
   template: '{{data.name}} ' +
-    '<button (click)="toggle()">toggle change detection</button>' +
+    '<button (click)="doDetect()">doDetect</button>' +
     '<app-childofchild [data]="data"></app-childofchild>',
 })
 export class ChildComponent implements DoCheck {
@@ -25,6 +25,10 @@ export class ChildComponent implements DoCheck {
     } else {
       this.cdr.reattach(); // // 해당 컴포넌트와 하위 컴포넌트는 변경감지 프로세스 트리에 추가됨
     }
+  }
+
+  doDetect(){
+    this.cdr.detectChanges(); // 변경 감지 수행
   }
 
   ngDoCheck() {
