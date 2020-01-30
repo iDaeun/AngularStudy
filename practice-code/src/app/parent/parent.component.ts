@@ -11,6 +11,6 @@ import { Component, OnInit } from '@angular/core';
 export class ParentComponent {
   data = {name : 'kang'};
   change() {
-    this.data.name = this.data.name + '1'; // 객체의 value만 변경했기 때문에 레퍼런스 유지 --> 변경 감지 못함
+    this.data = {name : this.data.name + '1'}; // 새로운 레퍼런스를 가리키기 때문에 변경 감지 수행함
   }
 }
