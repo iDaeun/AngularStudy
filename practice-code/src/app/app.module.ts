@@ -9,6 +9,7 @@ import { FilterAndMapComponent } from './filter-and-map/filter-and-map.component
 import { ChildComponent } from './child/child.component';
 import { ChildofchildComponent } from './childofchild/childofchild.component';
 import { ParentComponent } from './parent/parent.component';
+import { CloneComponent } from './clone/clone.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ParentComponent } from './parent/parent.component';
     FilterAndMapComponent,
     ChildComponent,
     ChildofchildComponent,
-    ParentComponent
+    ParentComponent,
+    CloneComponent
   ],
   imports: [
     BrowserModule,
