@@ -222,3 +222,21 @@ export class HeroListComponent implements OnInit {
  <!-- shortTime 형식: '9:43 AM'-->
  <p>The time is {{today | date:'shortTime'}}</p> 
 </code></pre>
+
+디렉티브
+
+동적인 Angular의 템플릿을 렌더링할 때 디렉티브가 있으면 DOM모양을 디렉티브 모양에 따라 변형시킴
+- 클래스에 @Directive()데코레이터로 정의함
+- 컴포넌트도 디렉티브의 한 종류지만 @Directive()대신 @Component()데코레이터로 사용함
+
+1) 구조 디렉티브 : DOM 엘리먼트를 추가, 제거, 치환 -> DOM 레이아웃 변경 (NgFor, NgIf)
+
+<code><pre> <li *ngFor="let hero of heroes"></li>
+<app-hero-detail *ngIf="selectedHero"></app-hero-detail>
+</code></pre>
+
+2) 어트리뷰트 디렉티브 : 이미 존재하는 엘리먼트, 컴포넌트, 다른 디렉티브의 모양이나 동작을 변경 (NgStyle)
+
+<code><pre> <input [(ngModel)]="hero.name"> </code></pre>
+
+ngModel -> 양방향 바인딩에 사용됨, <input>과 같은 입력 필드의 동작을 변형시켜 컴포넌트 프로퍼티의 값을 화면에 표시하거나 값이 변경되는 이벤트에 반응함
