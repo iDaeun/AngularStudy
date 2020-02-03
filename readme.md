@@ -181,30 +181,29 @@ export class HeroListComponent implements OnInit {
 - 보통 같은 NgModule에 있는 컴포넌트를 활용해서 뷰 계층으로 구성됨
 
 템플릿 문법
-<code><pre>// 문자열 바인딩
-<li>{{hero.name}}</li>
 
+<code><pre>
+// 문자열 바인딩
+<li>{{hero.name}}</li>
 // 프로퍼티 바인딩
 <app-hero-detail [hero]="selectedHero"></app-hero-detail>
-
 // 이벤트 바인딩
-<li (click)="selectHero(hero)"></li></code></pre>
-
-1) 문자열 바인딩 : 해당 component안에 있는 프로퍼티 값을 <li>엘리먼트 안에 표시함
-
-2) 프로퍼티 바인딩 : 
-[src/app/hero-list.component.html] -- @Input
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
-(부모) HeroListComponent에 있는 selectedHero값 --> (자식) HeroDetailComponent의 hero프로퍼티로 전달
-
-3) 이벤트 바인딩 :
-[src/app/hero-list.component.html]
 <li (click)="selectHero(hero)"></li>
-해당<li>을 클릭 하면 --> HeroListComponent에 있는 selectHero(hero)메소드 실행
-[src/app/test.component.html] -- @Output
+</code></pre>
+
+1) 문자열 바인딩 : 해당 component안에 있는 프로퍼티 값을 "li"엘리먼트 안에 표시함
+
+2) 프로퍼티 바인딩 : src/app/hero-list.component.html >> @Input
+<app-hero-detail hero="selectedHero"></app-hero-detail>
+(부모) HeroListComponent에 있는 selectedHero값 => (자식) HeroDetailComponent의 hero프로퍼티로 전달
+
+3) 이벤트 바인딩 : src/app/hero-list.component.html
+<li (click)="selectHero(hero)"></li>
+해당"li"을 클릭 하면 => HeroListComponent에 있는 selectHero(hero)메소드 실행
+src/app/test.component.html >> @Output
 <app-select-box-date-picker
 (selectedDateChanged)="onChangeSelectedDate($event)"></app-select-box-date-picker>
-(자식) SelectBoxDatePicker에서 정의한 selecteDateChanged메소드 --> (부모) TestComponent의 onChangeSelectedDate($event)로 전달
+(자식) SelectBoxDatePicker에서 정의한 selecteDateChanged메소드 => (부모) TestComponent의 onChangeSelectedDate($event)로 전달
 
 파이프
 
@@ -241,7 +240,7 @@ export class HeroListComponent implements OnInit {
 
 ngModel -> 양방향 바인딩에 사용됨, <input>과 같은 입력 필드의 동작을 변형시켜 컴포넌트 프로퍼티의 값을 화면에 표시하거나 값이 변경되는 이벤트에 반응함
 
-4. 서비스, 의존성 주입
+## 4. 서비스, 의존성 주입
 @Injectable데코레이터를 사용하여 서비스 클래스 정의함
 컴포넌트나 다른 서비스에 의존성으로 주입(Dependency Injection)하기 위해 다른 구성요소보다 먼저 처리됨
 예 : 서버에서 데이터 받아오기, 사용자 입력 검증하기, 콘솔에 로그 출력하기 등의 로직을 서비스에서 처리함
