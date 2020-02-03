@@ -10,6 +10,7 @@ import { ChildComponent } from './child/child.component';
 import { ChildofchildComponent } from './childofchild/childofchild.component';
 import { ParentComponent } from './parent/parent.component';
 import { CloneComponent } from './clone/clone.component';
+import { OperatorsComponent } from './operators/operators.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CloneComponent } from './clone/clone.component';
     ChildComponent,
     ChildofchildComponent,
     ParentComponent,
-    CloneComponent
+    CloneComponent,
+    OperatorsComponent
   ],
   imports: [
     BrowserModule,
