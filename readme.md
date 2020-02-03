@@ -182,14 +182,12 @@ export class HeroListComponent implements OnInit {
 
 템플릿 문법
 
-<code><pre>
-// 문자열 바인딩
+<pre><code>// 문자열 바인딩
 li -> {{hero.name}}
 // 프로퍼티 바인딩
 <app-hero-detail [hero]="selectedHero"></app-hero-detail>
 // 이벤트 바인딩
-(click)="selectHero(hero)"
-</code></pre>
+(click)="selectHero(hero)"</code></pre>
 
 1) 문자열 바인딩 : 해당 component안에 있는 프로퍼티 값을 "li"엘리먼트 안에 표시함
 
@@ -211,14 +209,12 @@ src/app/test.component.html >> @Output
 - {{ 변환되는 값 | 파이프 이름 }}
 - 날짜 파이프, 통화 파이프 자주 사용
 
-<code><pre> 
-<!-- 기본 형식: 'Jun 15, 2015'-->
+<pre><code> 
+// 기본 형식: 'Jun 15, 2015'
 <p>Today is {{today | date}}</p>
-
-<!-- fullDate 형식: 'Monday, June 15, 2015'-->
+// fullDate 형식: 'Monday, June 15, 2015'
 <p>The date is {{today | date:'fullDate'}}</p>
-
-<!-- shortTime 형식: '9:43 AM'-->
+// shortTime 형식: '9:43 AM'
 <p>The time is {{today | date:'shortTime'}}</p> 
 </code></pre>
 
@@ -230,14 +226,14 @@ src/app/test.component.html >> @Output
 
 1) 구조 디렉티브 : DOM 엘리먼트를 추가, 제거, 치환 -> DOM 레이아웃 변경 (NgFor, NgIf)
 
-<code><pre> 
+<pre><code> 
 li -> *ngFor="let hero of heroes"
 <app-hero-detail *ngIf="selectedHero"></app-hero-detail>
 </code></pre>
 
 2) 어트리뷰트 디렉티브 : 이미 존재하는 엘리먼트, 컴포넌트, 다른 디렉티브의 모양이나 동작을 변경 (NgStyle)
 
-<code><pre> <input [(ngModel)]="hero.name"> </code></pre>
+<pre><code> <input [(ngModel)]="hero.name"> </code></pre>
 
 ngModel -> 양방향 바인딩에 사용됨, <input>과 같은 입력 필드의 동작을 변형시켜 컴포넌트 프로퍼티의 값을 화면에 표시하거나 값이 변경되는 이벤트에 반응함
 
