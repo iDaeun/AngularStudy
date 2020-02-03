@@ -233,7 +233,7 @@ li -> *ngFor="let hero of heroes"
 
 2) 어트리뷰트 디렉티브 : 이미 존재하는 엘리먼트, 컴포넌트, 다른 디렉티브의 모양이나 동작을 변경 (NgStyle)
 
-<pre><code> <input [(ngModel)]="hero.name"> </code></pre>
+<pre><code>input -> [(ngModel)]="hero.name"</code></pre>
 
 ngModel -> 양방향 바인딩에 사용됨, <input>과 같은 입력 필드의 동작을 변형시켜 컴포넌트 프로퍼티의 값을 화면에 표시하거나 값이 변경되는 이벤트에 반응함
 
