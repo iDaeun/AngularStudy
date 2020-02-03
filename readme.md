@@ -184,11 +184,11 @@ export class HeroListComponent implements OnInit {
 
 <code><pre>
 // 문자열 바인딩
-<li>{{hero.name}}</li>
+li -> {{hero.name}}
 // 프로퍼티 바인딩
 <app-hero-detail [hero]="selectedHero"></app-hero-detail>
 // 이벤트 바인딩
-<li (click)="selectHero(hero)"></li>
+(click)="selectHero(hero)"
 </code></pre>
 
 1) 문자열 바인딩 : 해당 component안에 있는 프로퍼티 값을 "li"엘리먼트 안에 표시함
@@ -198,8 +198,8 @@ export class HeroListComponent implements OnInit {
 (부모) HeroListComponent에 있는 selectedHero값 => (자식) HeroDetailComponent의 hero프로퍼티로 전달
 
 3) 이벤트 바인딩 : src/app/hero-list.component.html
-<li (click)="selectHero(hero)"></li>
-해당"li"을 클릭 하면 => HeroListComponent에 있는 selectHero(hero)메소드 실행
+(click)="selectHero(hero)"
+클릭 하면 => HeroListComponent에 있는 selectHero(hero)메소드 실행
 src/app/test.component.html >> @Output
 <app-select-box-date-picker
 (selectedDateChanged)="onChangeSelectedDate($event)"></app-select-box-date-picker>
@@ -213,13 +213,13 @@ src/app/test.component.html >> @Output
 
 <code><pre> 
 <!-- 기본 형식: 'Jun 15, 2015'-->
- <p>Today is {{today | date}}</p>
+<p>Today is {{today | date}}</p>
 
 <!-- fullDate 형식: 'Monday, June 15, 2015'-->
 <p>The date is {{today | date:'fullDate'}}</p>
 
- <!-- shortTime 형식: '9:43 AM'-->
- <p>The time is {{today | date:'shortTime'}}</p> 
+<!-- shortTime 형식: '9:43 AM'-->
+<p>The time is {{today | date:'shortTime'}}</p> 
 </code></pre>
 
 디렉티브
@@ -230,7 +230,8 @@ src/app/test.component.html >> @Output
 
 1) 구조 디렉티브 : DOM 엘리먼트를 추가, 제거, 치환 -> DOM 레이아웃 변경 (NgFor, NgIf)
 
-<code><pre> <li *ngFor="let hero of heroes"></li>
+<code><pre> 
+li -> *ngFor="let hero of heroes"
 <app-hero-detail *ngIf="selectedHero"></app-hero-detail>
 </code></pre>
 
