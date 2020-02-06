@@ -256,7 +256,7 @@ DI = 서비스와 같은 객체를 Angular 프레임워크와 묶는 개념, 컴
 - 인젝터 -> 의존성 객체의 인스턴스 생성, 인스턴스를 나중에 재사용할 수 있도록 컨테이너에 관리
 - 프로바이더 -> 의존성으로 주입되는 객체를 어떻게 만드는지 정의한 것 
 
-<pre><code> constructor(private service: HeroService) { }</pre></code>
+<pre><code> constructor(private service: HeroService) { }</code></pre>
 
 Angular가 HeroListComponent의 인스턴스를 생성할 때 -> 생성자 파라미터 타입을 보고 어떤 의존성이 주입되어야 하는지 결정함
 (예시에서는 HeroService 의존성으로 주입함)
@@ -265,3 +265,40 @@ Angular가 HeroListComponent의 인스턴스를 생성할 때 -> 생성자 파�
 2. 만약 없다면, Injector는 provider에 따라 서비스의 인스턴스를 추가 생성함
 3. 다시 Angular에게 서비스를 전달함
 4. 컴포넌트 생성자를 실행하면서 서비스를 인자로 전달함
+
+서비스 프로바이더 등록
+
+서비스를 사용하기 위해서는 프로바이더를 어디엔가 등록해야함 (두가지)
+
+1. 서비스 메타데이터 (@Injectable() 데코레이터에 자신의 프로바이더 직접 등록
+
+<pre><code> @Injectable({
+ providedIn: 'root',
+})</code></pre>
+
+(CLI) ng generate service 명령 > @Injectable으로 해당 서비스를 최상위 인젝터에 등록함
+- 해당 서비스의 인스턴스는 앱 전역에 딱 하나만 생성됨, 의존성을 주입하는 컴포넌트가 모두 같은 인스턴스를 공유함
+
+2. @NgModule이나 @Component() 메타데이터에 프로바이터 등록, 하위계층에서 프로바이더 이용
+
+   1) 특정 NgModule에 등록
+
+<pre><code> @NgModule({
+  providers: [
+  BackendService,
+  Logger
+ ],
+ ...
+})</code></pre>
+
+해당 NgModule 범위에 있는 컴포넌트만 같은 서비스 인스턴스 공유함
+
+   2) 컴포넌트 계층에 프로바이더 지정
+
+<pre><code> @Component({
+  selector:    'app-hero-list',
+  templateUrl: './hero-list.component.html',
+  providers:  [ HeroService ]
+})</code></pre>
+
+해당 컴포넌트 인스턴스가 생성될 때마다 의존성 객체에 대해 새로운 인스턴스 생성함
