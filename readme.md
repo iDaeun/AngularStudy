@@ -2,6 +2,8 @@
 
 참고 :
 - 앵귤러 공식 사이트
+더보기 :
+- 블로그 (https://kkangdda.tistory.com/category/%F0%9F%94%B4%20Angular)
 
 
 ## 1. 개요
