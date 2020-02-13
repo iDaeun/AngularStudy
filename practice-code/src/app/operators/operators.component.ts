@@ -27,18 +27,27 @@ export class OperatorsComponent implements OnInit {
   ngOnInit() {
   }
 
+  // 1-1 example
   public pipeable() {
     this.observerPipeContext.subscribe(
       v => console.log(v)
-    ); // console : 2 , 4
-    // this.observer
-    //   .pipe(
-    //     filter((v: number) => !(v % 2)),
-    //     map(v => v + v),
-    //   ).subscribe(
-    //   v => this.observerContext = v
-    // );
-    // console.log('pipeable() === ', this.observerPipeContext);
+    );
+  }
+
+  // 1-2 example
+  public customPipe() {
+    const nums = of(1, 2, 3, 4, 5);
+
+    // create custom function
+    const cutsom = pipe(
+      filter((num: number) => num % 2 !== 0),
+      map(num => num * num)
+    );
+
+    // use custom function
+    const result = cutsom(nums);
+    // subscribe and print
+    result.subscribe(x => console.log(x)); // 1, 9, 25
   }
 
 }
