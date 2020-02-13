@@ -50,4 +50,15 @@ export class OperatorsComponent implements OnInit {
     result.subscribe(x => console.log(x)); // 1, 9, 25
   }
 
+  // 1-3 example
+  public pipeFunction() {
+    const pipeResult = of(1, 2, 3, 4, 5)
+      .pipe(
+        filter(n => n % 2 !== 0),
+        map(n => n * n)
+      );
+
+    // subscribe
+    pipeResult.subscribe(x => console.log(x)); // 1, 9, 25
+  }
 }
