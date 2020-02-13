@@ -3,6 +3,7 @@
 Operators = functions
 
 1. Pipe
+
 1-1) Pipeable Operator => pure function that takes an Observable as its 'input' and returns 'another Observable'
 - can be piped to Observables
 - using the syntax 'observableInstance.pipe(operator())'
