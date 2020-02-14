@@ -1,5 +1,7 @@
 # Operators
 
+- 블로그 정리 : RxJS library - pipe - https://kkangdda.tistory.com/m/71
+
 Operators = functions
 
 1. Pipe
